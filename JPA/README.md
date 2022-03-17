@@ -2,7 +2,7 @@
 > 매주 화, 목, 토 **자바 ORM 표준 JPA 프로그래밍**을 읽고, 정리하고, 토론합니다.
 
 |Chapter|내용|작성자|
-|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|
 |**1장**<br> (03.03)|JPA 소개|[ONE](https://github.com/choi-jaewon)|
 |**2장**<br> (03.05)|JPA 시작|[SUbbb](https://github.com/SeongukBaek)|
 |**3장**<br> (03.08)|영속성 관리|[JFe](https://github.com/Go-Jaecheol)|
