@@ -1,8 +1,9 @@
 JPA의 데이터 타입은 크게 엔터티 타입과 값 타입으로 나뉜다.
-> 엔터티 타입
+> **엔터티 타입**
 > - @Entity로 정의하는 객체
 > - 식별자를 통해 지속해서 추적 가능
-> 값 타입
+
+> **값 타입**
 > - int, Integer, String처럼 단순히 값으로 사용하는 자바 기본 타입이나 객체
 > - 식별자가 없고 숫자나 문자같은 속성만 있으므로 추적 불가
 
@@ -18,12 +19,12 @@ public class Member {
 
 - String, int가 값 타입
 - Member 엔터티는 id라는 식별자 값도 가지고 생명주기도 있지만 값 타입인 name, age 속성은 식별자 값도 없고 생명주기도 엔터티에 의존한다.
-- 회원 엔터테 인스턴스를 제거하면 name, age 값도 제거된다.
+- 회원 엔터티 인스턴스를 제거하면 name, age 값도 제거된다.
 
 ## 임베디드 타입(복합 값 타입)
 
-새로운 값 타입을 직접 정의해서 사용하는 것을 JPA에서는 임베디드 타입(embedded type)이라고 한다.  
-(하이버네이트는 임베디드 타입을 컴포넌트라 한다.)  
+새로운 값 타입을 직접 정의해서 사용하는 것을 JPA에서는 **임베디드 타입(embedded type)** 이라고 한다.  
+*(하이버네이트는 임베디드 타입을 컴포넌트라 한다.)*  
 ```java
 @Entity
 public class Member {
@@ -43,7 +44,7 @@ public class Member {
 }
 ```
 
-위와 같이 회원이 상세한 데이터를 그대로 가지고 있는 것은 객체지향적이지 않으며 읍직력을 떨어뜨린다.
+위와 같이 회원이 상세한 데이터를 그대로 가지고 있는 것은 객체지향적이지 않으며 응집력을 떨어뜨린다.
 
 ```java
 @Entity
@@ -84,8 +85,8 @@ public class Address {
 [근무기간, 집 주소]를 가지도록 임베디드 타입을 사용하면 위와 같이 바꿀 수 있다.  
 임베디드 타입은 기본 생성자가 필수다.  
 임베디드 타입을 사용하려면 다음 2가지 어노테이션이 필요하다. (둘 중 하나는 생략 가능)  
-- @Embeddable: 값 타입을 정의하는 곳에 표시
-- @Embedded: 값 타입을 사용하는 곳에 표시
+- `@Embeddable`: 값 타입을 정의하는 곳에 표시
+- `@Embedded`: 값 타입을 사용하는 곳에 표시
 
 임베디드 타입을 포함한 모든 값 타입은 엔터티의 생명주기에 의존하므로 엔터티와 임베디드 타입의 관계를 UML로 표현하면 composition 관계가 된다.  
 
@@ -139,7 +140,7 @@ public class PhoneServiceProvider {
 
 ### 3. @AttributeOverride: 속성 재정의
 
-임베디드 타입에 정의한 매핑정보를 재정의하려면 엔터티에 @AttributeOverride를 사용하면 된다.  
+임베디드 타입에 정의한 매핑정보를 재정의하려면 엔터티에 `@AttributeOverride`를 사용하면 된다.  
 ```java
 @Entity
 public class Member {
@@ -168,8 +169,8 @@ public class Member {
     Address companyAddress;
 }
 ```
-위와 같이 @AttributeOverrides를 사용해서 매핑정보를 재정의할 수 있다.  
-@AttributeOverride를 사용하면 어노테이션을 너무 많이 사용해서 엔터티 코드가 지저분해지는데 다행히 한 엔터티에 같은 임베디드 타입을 중복해서 사용하는 일은 많지 않다.  
+위와 같이 `@AttributeOverrides`를 사용해서 매핑정보를 재정의할 수 있다.  
+`@AttributeOverride`를 사용하면 어노테이션을 너무 많이 사용해서 엔터티 코드가 지저분해지는데 다행히 한 엔터티에 같은 임베디드 타입을 중복해서 사용하는 일은 많지 않다.  
 아래와 같이 생성된 테이블을 보면 재정의한대로 변경되어 있는 것을 확인할 수 있다.  
 ```sql
 CREATE TABLE MEMBER (
@@ -230,10 +231,10 @@ member2.setHomeAddress(address);
 
 ### 3. 불변 객체  
 객체를 불변하게 만들면 값을 수정할 수 없으므로 부작용을 차단할 수 있다.  
-따라서 값 타입은 될 수 있으면 불변 객체(immutable Object)로 설계해야 한다.  
+따라서 값 타입은 될 수 있으면 **불변 객체(immutable Object)** 로 설계해야 한다.  
 불변 객체의 값은 조회할 수 있지만 수정할 수 없으므로 부작용이 발생하지 않는다.  
 불변 객체는 생성자로만 값을 설정하고 수정자를 만들지 않는 방법으로 구현할 수 있다.  
-(Integer, String은 자바가 제공하는 대표적인 불변 객체다.)  
+*(Integer, String은 자바가 제공하는 대표적인 불변 객체다.)*  
 ```java
 @Embeddable
 public class Address {
@@ -262,15 +263,15 @@ member2.setHomeAddress(newAddress);
 ---
 
 ## 값 타입의 비교  
-- 동일성 비교 : 인스턴스의 참조 값을 비교, == 사용
-- 동등성 비교 : 인스턴스의 값을 비교, equals() 사용  
-값 타입을 비교할 때는 equals()를 사용해서 동등성 비교를 해야 한다.  
-값 타입의 equals() 메소드를 재정의할 때는 보통 모든 필드의 값을 비교하도록 구현한다.  
+- 동일성 비교 : 인스턴스의 참조 값을 비교, `==` 사용
+- 동등성 비교 : 인스턴스의 값을 비교, `equals()` 사용  
+값 타입을 비교할 때는 `equals()`를 사용해서 동등성 비교를 해야 한다.  
+값 타입의 `equals()` 메소드를 재정의할 때는 보통 모든 필드의 값을 비교하도록 구현한다.  
 
 ---
 
 ## 값 타입 컬렉션
-값 타입을 하나 이상 저장하려면 컬렉션에 보관하고 @ElementCollection, @CollectionTable 어노테이션을 사용하면 된다.  
+값 타입을 하나 이상 저장하려면 컬렉션에 보관하고 `@ElementCollection`, `@CollectionTable` 어노테이션을 사용하면 된다.  
 
 ### 1. 값 타입 컬렉션 사용  
 ```java
@@ -292,10 +293,10 @@ em.persist(member);
 ```
 
 실제 데이터베이스에 실행되는 INSERT SQL은 다음과 같다.  
-- member: INSERT SQL 1번
-- member.homeAddress: 컬렉션이 아닌 임베디드 값 타입이므로 회원테이블을 저장하는 SQL에 포함된다.
-- member.favoriteFoods: INSERT SQL 2번
-- member.addressHistory: INSERT SQL 3번
+- `member`: INSERT SQL 1번
+- `member.homeAddress`: 컬렉션이 아닌 임베디드 값 타입이므로 회원테이블을 저장하는 SQL에 포함된다.
+- `member.favoriteFoods`: INSERT SQL 3번
+- `member.addressHistory`: INSERT SQL 2번
 
 ```java
 Member member = em.find(Member.class, 1L);
@@ -308,14 +309,14 @@ Set<String> favoriteFoods = member.getFavoriteFoods();
 favoriteFoods.remove("탕수육");
 favoriteFoods.add("치킨");
 
-//3. 임베디드 값 타입 컬렉션 tnwjd
+//3. 임베디드 값 타입 컬렉션 수정
 List<Address> addressHistory = member.getAddressHistory();
 addressHistory.remove(new Address("서울","기존 주소","123-123"));
 addressHistory.add(new Address("새로운도시","새로운 주소","123-456"));
 ```
 값 타입 컬렉션을 수정하면  
-1. 임베디드 값 타입 수정 : homeAddress 임베디드 값 타입은 MEMBER 테이블과 매핑했으므로 MEMBER 테이블만 UPDATE 한다.  
-2. 기본값 타입 컬렉션 수정 : 탕수육을 치킨으로 변경하려면 탕수육을 제거하고 치킨을 추가해야 한다. 자바의 String 타입은 수정할 수 없다.  
-3. 임베디드 값 타입 컬렉션 수정 : 값 타입은 불변해야 한다. 따라서 컬렉션에서 기존 주소를 삭제하고 새로운 주소를 등록했다. 참고로 값 타입은 equals, hashcode를 꼭 구현해야 한다.  
+1. **임베디드 값 타입 수정** : homeAddress 임베디드 값 타입은 MEMBER 테이블과 매핑했으므로 MEMBER 테이블만 UPDATE 한다.  
+2. **기본값 타입 컬렉션 수정** : 탕수육을 치킨으로 변경하려면 탕수육을 제거하고 치킨을 추가해야 한다. 자바의 String 타입은 수정할 수 없다.  
+3. **임베디드 값 타입 컬렉션 수정** : 값 타입은 불변해야 한다. 따라서 컬렉션에서 기존 주소를 삭제하고 새로운 주소를 등록했다. 참고로 값 타입은 equals, hashcode를 꼭 구현해야 한다.  
 
 
