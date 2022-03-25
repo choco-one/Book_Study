@@ -10,3 +10,6 @@
 |**5장**<br> (03.15)|연관관계 매핑 기초|[SUbbb](https://github.com/SeongukBaek)|
 |**6장**<br> (03.17)|다양한 연관관계 매핑|[JFe](https://github.com/Go-Jaecheol)|  
 |**7장**<br> (03.19)|고급 매핑|[ONE](https://github.com/choi-jaewon)|
+|**8장**<br> (03.22)|프록시와 연관관계 관리|[SUbbb](https://github.com/SeongukBaek)|
+|**9장**<br> (03.24)|값 타입|[JFe](https://github.com/Go-Jaecheol)|
+|**10-1장**<br> (03.26)|객체 지향 쿼리 언어|[ONE](https://github.com/choi-jaewon)|
