@@ -75,8 +75,7 @@ CriteriaQuery<Member> query = cb.createQuery(Member.class);
 Root<Member> m = query.from(Member.class);
 
 //쿼리 생성
-CriteriaQuery<Member> cq =  query.select(m)
-								.where(cb.equal(m.get("usernamen", "kim"));
+CriteriaQuery<Member> cq =  query.select(m).where(cb.equal(m.get("usernamen", "kim"));
 
 List<Meinber> resultList = em.createQuery(cq).getResultList();
 ```
@@ -345,8 +344,8 @@ List<Member> resultList =  em.createNativeQuery(sql, Member.class).getResultList
 ```sql
 select m.username
 from Member m
-		join m.team t
-		join m.orders o
+    join m.team t
+    join m.orders o
 where t.name = '팀A'
 ```
 
@@ -361,18 +360,18 @@ where t.name = '팀A'
 ```java
 @Entity
 public class Member {
-		@Id @GeneratedValue
-		private Logn id;
+    @Id @GeneratedValue
+    private Logn id;
 		
-		@Column(name="name")
-		private String username; // 상태 필드
-		private Integer age; // 상태 필드
+    @Column(name="name")
+    private String username; // 상태 필드
+    private Integer age; // 상태 필드
 	
-		@ManyToOne(..)
-		private Team team; // 연관 필드(단일 값 연관 필드)
+    @ManyToOne(..)
+    private Team team; // 연관 필드(단일 값 연관 필드)
 
-		@OneToMany(..)
-		private List<Order> orders; // 연관 필드(컬렉션 값 연관 필드)
+    @OneToMany(..)
+    private List<Order> orders; // 연관 필드(컬렉션 값 연관 필드)
 ```
 
 - 상태 필드 : t.username, t.age
