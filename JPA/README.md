@@ -13,3 +13,5 @@
 |**8장**<br> (03.22)|프록시와 연관관계 관리|[SUbbb](https://github.com/SeongukBaek)|
 |**9장**<br> (03.24)|값 타입|[JFe](https://github.com/Go-Jaecheol)|
 |**10-1장**<br> (03.26)|객체 지향 쿼리 언어|[ONE](https://github.com/choi-jaewon)|
+|**10-2장**<br> (03.29)|객체 지향 쿼리 언어|[SUbbb](https://github.com/SeongukBaek)|
+|**10-3장**<br> (03.31)|객체 지향 쿼리 언어|[JFe](https://github.com/Go-Jaecheol)|
