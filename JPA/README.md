@@ -17,3 +17,4 @@
 |**10-3장**<br> (03.31)|객체 지향 쿼리 언어|[JFe](https://github.com/Go-Jaecheol)|
 |**12장**<br> (04.02)|스프링 데이터 JPA|[ONE](https://github.com/choi-jaewon)|
 |**13장**<br> (04.05)|웹 애플리케이션과 영속성 관리|[SUbbb](https://github.com/SeongukBaek)|
+|**14장**<br> (04.07)|컬렉션과 부가 기능|[JFe](https://github.com/Go-Jaecheol)|
