@@ -19,3 +19,4 @@
 |**13장**<br> (04.05)|웹 애플리케이션과 영속성 관리|[SUbbb](https://github.com/SeongukBaek)|
 |**14장**<br> (04.07)|컬렉션과 부가 기능|[JFe](https://github.com/Go-Jaecheol)|
 |**15-1장**<br> (04.09)|고급 주제와 성능 최적화|[ONE](https://github.com/choi-jaewon)|
+|**15-2장**<br> (04.12)|고급 주제와 성능 최적화 2|[SUbbb](https://github.com/SeongukBaek)|
