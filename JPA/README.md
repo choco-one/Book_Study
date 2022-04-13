@@ -20,3 +20,4 @@
 |**14장**<br> (04.07)|컬렉션과 부가 기능|[JFe](https://github.com/Go-Jaecheol)|
 |**15-1장**<br> (04.09)|고급 주제와 성능 최적화|[ONE](https://github.com/choi-jaewon)|
 |**15-2장**<br> (04.12)|고급 주제와 성능 최적화 2|[SUbbb](https://github.com/SeongukBaek)|
+|**16장**<br> (04.14)|트랜잭션과 락, 2차 캐시|[JFe](https://github.com/Go-Jaecheol)|
